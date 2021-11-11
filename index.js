@@ -7,6 +7,7 @@ http.createServer((req, res) => {
 	res.write("Amir Avidan"); 
 	res.write("Koral Tsaba");
 	res.write("Idan Kario");
+	res.write("Bader Daka");
 	res.end(); 
 }).listen(port); 
 
