@@ -3,7 +3,9 @@ const port = 8080;
 http.createServer((req, res) => {
 
 	res.writeHead(200);
+
 	res.write("Bader Daka");
+
 	res.end(); 
 }).listen(port); 
 
