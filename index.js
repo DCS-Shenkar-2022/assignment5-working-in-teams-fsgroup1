@@ -11,4 +11,3 @@ app.all('*',(req,res) => res.send('Global handler for all routes'));
 
 
 app.listen(port);
-
