@@ -1,13 +1,13 @@
-const http = require ("http");
-const port = 8080;
-http.createServer((req, res) => {
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 8080;
 
-	res.writeHead(200);
 
-	res.write("Bader Daka");
+app.get('/api/v1/githubUser/:githubUserName/avatar',(req,res) => {});
+app.get('/api/v1/githubUser/:githubUserName/repo/:repoName',(req,res) => {});
+app.get('/api/v1/githubUser/:githubUserName/repo/:repoName/contributers',(req,res) => {});
+app.all('*',(req,res) => res.send('Global handler for all routes'));
+ 
 
-	res.end(); 
-}).listen(port); 
 
-console.log(`Listening on port ${port}`);
-
+app.listen(port);
