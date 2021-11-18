@@ -3,6 +3,21 @@ const app = express();
 const port = process.env.PORT || 8080;
 const { getGithubData, getGithubRepoName, getRepoContributors } = require('./axiosmodel')
 
+app.param('githubUserName', (req,res,next,value) => {
+	if(/\d/.test(value) || /\s/.test(value)) {
+		res.send("Invaild input");
+	}
+	else
+		next();
+});
+
+app.param('repoName', (req,res,next,value) => {
+	if(/\d/.test(value) || /\s/.test(value)) {
+		res.send("Invaild input");
+	}
+	else
+		next();
+});
 
 app.get('/api/v1/githubUser/:githubUserName/avatar', async (req, res) => {
 
