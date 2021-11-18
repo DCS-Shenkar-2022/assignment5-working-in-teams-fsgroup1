@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080;
+
 const { getGithubData, getGithubRepoName, getRepoContributors } = require('./axiosmodel')
 
 app.param('githubUserName', (req,res,next,value) => {
@@ -57,8 +58,3 @@ app.listen(port);
 // getGithubData().then(e => console.log(e));
 // getGithubRepoName().then(e => console.log(e));
 // getRepoContributors().then(e => console.log(e));
-
-
-
-
-
