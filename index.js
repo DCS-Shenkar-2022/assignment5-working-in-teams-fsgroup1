@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 8080;
 const { getGithubData, getGithubRepoName, getRepoContributors } = require('./axiosmodel')
 
 app.param('githubUserName', (req,res,next,value) => {
@@ -51,10 +51,11 @@ app.get('/api/v1/githubUser/:githubUserName/repo/:repoName', async (req, res) =>
 
 
 });
-// app.get('/api/v1/githubUser/:githubUserName/repo/:repoName/contributers', (req, res) => {
+//app.get('/api/v1/githubUser/:githubUserName/repo/:repoName/contributers', (req, res) => {
 
-// });
-//  app.all('*', (req, res) => res.send('Global handler for all routes'));
+
+ //});
+ app.all('*', (req, res) => res.send('Global handler for all routes'));
 
 app.listen(port);
 // getGithubData().then(e => console.log(e));
