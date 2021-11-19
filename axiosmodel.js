@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 //const url = axios.get(`https://api.github.com/users/${username}`);
-// let username = 'BaderDak0';
+//let username = 'BaderDak0';
 // let username2= 'idankario'
 const getPrimise=(promise)=> {
     
@@ -15,19 +15,22 @@ const getGithubData=(username)=> {
     return getPrimise(axios.get(`https://api.github.com/users/${username}`))
     // /api/v1/github User/BaderDak0/avatar
 }
-const getGithubRepoName=(username)=> {
+const getGithubRepoName=(username,repo)=> {
     // create a promise for the axios request
-    return getPrimise(axios.get(`https://api.github.com/repos/${username}/Distributed-Cloud-Services-Web`));
+    return getPrimise(axios.get(`https://api.github.com/repos/${username}/${repo}`));
 }
-const getRepoContributors=(username)=> {
+const getRepoContributors=(username,repo)=> {
     // create a promise for the axios request
-    return getPrimise(axios.get(`https://api.github.com/repos/${username2}/BookShoop-Cpp/contributors`))
+    return getPrimise(axios.get(`https://api.github.com/repos/${username}/${repo}/contributors`))
 }
-// getGithubData('BaderDak0').then(e => console.log(e));
+//getGithubData('BaderDak0').then(e => console.log(e));
+//getGithubRepoName('BaderDak0').then(e => console.log(e));
+//getRepoContributors('BaderDak0').then(e => console.log(e));
 module.exports = {
     getGithubData,  
     getGithubRepoName,
     getRepoContributors,
-    
   };
   
+
+//http://localhost:8080/api/v1/githubUser/BaderDak0/repo/Distributed-Cloud-Services-Web/
